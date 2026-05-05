@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>History</title>
+<link rel="stylesheet" href="CSS/style.css">
+<header>
+   
+    <h1>CURRECY EXCHANGE  WEB  SYSTEM </h1>
+</header>
+</head>
+<body>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="converter.html">Converter</a>
+<a href="details.html">Details</a>
+<a class="active" href="history.html">History</a>
+<a href="settings.html">Settings</a>
+</nav>
+
+<div class="container">
+<div class="card">
+<h2>📜 Conversion History</h2>
+
+<input type="text" id="filter" placeholder="Filter by currency..." onkeyup="renderHistory()">
+<br><br>
+
+<button onclick="clearHistory()">🗑 Clear History</button>
+
+<table>
+<tr>
+<th>Amount</th>
+<th>From</th>
+<th>To</th>
+<th>Result</th>
+<th>Date</th>
+</tr>
+<tbody id="historyBody"></tbody>
+</table>
+</div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

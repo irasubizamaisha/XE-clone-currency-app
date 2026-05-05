@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Currency Converter</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: goldenrod;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      background: green;
+      padding: 25px;
+      border-radius: 10px;
+      width: 340px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    button {
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .convert {
+      width: 100%;
+      background: #007bff;
+      color: white;
+    }
+
+    .swap {
+      background: #28a745;
+      color: white;
+      width: 80px;
+    }
+
+    .result {
+      margin-top: 15px;
+      text-align: left;
+      font-size: 14px;
+      background: #f7f9ff;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+
+  <h2>Currency Converter</h2>
+
+  <input type="number" id="amount" placeholder="Enter amount">
+
+  <div class="row">
+
+    <select id="from">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="RWF">RWF</option>
+    </select>
+
+    <button class="swap" onclick="swap()">⇅</button>
+
+    <select id="to">
+      <option value="RWF">RWF</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+
+  </div>
+
+  <button class="convert" onclick="convert()">Convert Now</button>
+
+  <div class="result" id="result">
+    Results will appear here...
+  </div>
+
+</div>
+
+<script>
+
+  const rates = {
+    USD: { USD: 1, EUR: 0.92, RWF: 1300 },
+    EUR: { USD: 1.09, EUR: 1, RWF: 1400 },
+    RWF: { USD: 0.00077, EUR: 0.00071, RWF: 1 }
+  };
+
+  function convert() {
+    let amount = document.getElementById("amount").value;
+    let from = document.getElementById("from").value;
+    let to = document.getElementById("to").value;
+
+    if (amount === "") {
+      document.getElementById("result").innerHTML = "Please enter amount";
+      return;
+    }
+
+    amount = parseFloat(amount);
+
+    let rate = rates[from][to];
+    let converted = amount * rate;
+
+    let time = new Date().toLocaleString();
+
+    document.getElementById("result").innerHTML = `
+      <b>1. Converted amount:</b> ${converted.toFixed(2)} ${to}<br>
+      <b>2. Exchange rate:</b> 1 ${from} = ${rate} ${to}<br>
+      <b>3. Timestamp:</b> ${time}
+    `;
+  }
+
+  function swap() {
+    let from = document.getElementById("from");
+    let to = document.getElementById("to");
+
+    let temp = from.value;
+    from.value = to.value;
+    to.value = temp;
+  }
+</script>
+
+</body>
+</html>

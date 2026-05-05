@@ -1,0 +1,101 @@
+import React, { useState } from "react";
+
+export default function HistoryPage() {
+  // 1. Data State: Stores the array of history objects
+  const [history, setHistory] = useState([
+    {
+      id: 1,
+      text: "Convert 100 USD to RWF",
+      date: new Date(),
+      currency: "USD",
+    },
+    {
+      id: 2,
+      text: "Convert 50 EUR to RWF",
+      date: new Date(),
+      currency: "EUR",
+    },
+  ]);
+
+  // 2. Filter State: Stores the currently selected currency filter
+  const [filter, setFilter] = useState("ALL");
+
+  // 3. Logic: Filter the list based on the state
+  const filteredHistory =
+    filter === "ALL"
+      ? history
+      : history.filter((item) => item.currency === filter);
+
+  // 4. Action: Clear the history with a confirmation guard
+  const clearHistory = () => {
+    if (window.confirm("Are you sure you want to clear all history?")) {
+      setHistory([]);
+    }
+  };
+
+  return (
+    <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
+      <h2>Conversation History</h2>
+
+      <div style={{ marginBottom: "20px" }}>
+        <label htmlFor="currency-filter" style={{ marginRight: "10px" }}>
+          Filter by Currency:
+        </label>
+        <select
+          id="currency-filter"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+        >
+          <option value="ALL">All Currencies</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+        </select>
+      </div>
+
+      
+      <div className="history-list">
+        {filteredHistory.length > 0 ? (
+          filteredHistory.map((item) => (
+            <div
+              key={item.id}
+              style={{
+                borderBottom: "1px solid #ccc",
+                paddingBottom: "10px",
+                marginBottom: "10px",
+              }}
+            >
+              <p style={{ margin: "0 0 5px 0", fontWeight: "bold" }}>
+                {item.text}
+              </p>
+              <small style={{ color: "#666" }}>
+                {item.date.toLocaleString()} • <strong>{item.currency}</strong>
+              </small>
+            </div>
+          ))
+        ) : (
+          <p style={{ color: "#888", fontStyle: "italic" }}>
+            No history found for this filter.
+          </p>
+        )}
+      </div>
+
+      
+      {history.length > 0 && (
+        <button
+          onClick={clearHistory}
+          style={{
+            marginTop: "20px",
+            padding: "10px 20px",
+            backgroundColor: "#dc3545",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+        >
+          Clear History
+        </button>
+      )}
+    </div>
+  );
+}
