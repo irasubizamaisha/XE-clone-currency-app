@@ -1,0 +1,27 @@
+/* Styling for the Navigation Menu */
+.form-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between links */
+    padding: 20px 0;
+}
+
+.menu-link {
+    display: block;
+    background-color: #5b9bd5; /* The blue from your buttons */
+    color: #ffc000;          /* The gold text */
+    text-decoration: none;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.menu-link:hover {
+    background-color: #7030a0; /* Purple on hover */
+    border-color: #ffc000;
+    transform: scale(1.02);    /* Slight "pop" effect */
+}

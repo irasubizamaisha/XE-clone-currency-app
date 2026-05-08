@@ -1,0 +1,83 @@
+
+.registration-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.main-heading {
+    background-color: #ff00ff;
+    color: #333;
+    padding: 5px 25px;
+    margin-bottom: 20px;
+}
+
+
+.outer-border {
+    border: 8px solid #92d050; 
+    border-radius: 45px;       
+    padding: 35px;
+    width: 480px;
+}
+
+
+.inner-form-box {
+    border: 1px solid #4f81bd;
+    border-radius: 35px;
+    padding: 25px;
+    background-color: #fff;
+}
+
+.inner-title {
+    background-color: #7030a0;
+    color: #ffc000;
+    width: fit-content;
+    margin: 0 auto 25px auto;
+    padding: 2px 12px;
+    text-decoration: underline;
+}
+
+
+.field-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.field-row label {
+    width: 140px;
+    font-weight: bold;
+}
+
+
+input[type="text"] {
+    border: 1px solid #4f81bd;
++    height: 22px;
+    flex-grow: 1;
+}
+
+.blue-text {
+    color: #4f81bd;
+    margin-right: 15px;
+}
+
+input[type="radio"] {
+    accent-color: #ffff00;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.form-btn {
+    background-color: #5b9bd5;
+    color: #ffc000;
+    border: none;
+    padding: 5px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}

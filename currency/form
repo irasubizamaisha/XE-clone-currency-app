@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Patient Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 class="page-title">New patient registration</h1>
+
+    <div class="outer-container">
+        <div class="form-card">
+            <h2 class="form-title">New patient form</h2>
+            
+            <form>
+                <div class="form-group">
+                    <label for="fullname">Full name:</label>
+                    <input type="text" id="fullname">
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="text" id="age">
+                </div>
+
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="gender">
+                        <label for="male" class="radio-label">male</label>
+                        
+                        <input type="radio" id="female" name="gender">
+                        <label for="female" class="radio-label">female</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone number:</label>
+                    <input type="text" id="phone">
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="btn cancel">cancel</button>
+                    <button type="submit" class="btn submit">submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
